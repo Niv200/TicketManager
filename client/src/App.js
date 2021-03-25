@@ -1,23 +1,17 @@
 import logo from "./logo.svg";
 import "./App.css";
+import Ticket from "./components/Ticket";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Ticket
+        title="titleee"
+        content="sssssss"
+        userEmail="nivm200"
+        creationTime="2018-11-13T12:13:55.544Z"
+        labels={[`Corvid`, `Guidelines`]}
+      />
     </div>
   );
 }

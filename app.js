@@ -19,19 +19,35 @@ const ticketSchema = new mongoose.Schema({
 
 const Ticket = mongoose.model("Ticket", ticketSchema);
 
+app.patch("/api/tickets/:ticketId/done", async (req, res) => {
+  let { ticketId } = req.params;
+  try {
+    let test = await Ticket.findOneAndUpdate(ticketId, { done: true });
+    return res.json({ updated: true });
+  } catch (error) {
+    console.log(error);
+    return res.send(error);
+  }
+});
+
+app.patch("/api/tickets/:ticketId/undone", async (req, res) => {
+  let { ticketId } = req.params;
+  try {
+    let test = await Ticket.findOneAndUpdate(ticketId, { done: false });
+    return res.json({ updated: true });
+  } catch (error) {
+    console.log(error);
+    return res.send(error);
+  }
+});
+
 app.get("/api/tickets", async (req, res) => {
   let searchText = req.query.searchText;
   try {
-    let arr = [];
     Ticket.find({}).then((result) => {
-      for (let ticket of result) {
-        if (searchText) {
-          if (ticket.title.includes(searchText)) {
-            arr.push(ticket);
-          }
-        } else {
-          res.json(result);
-        }
+      let arr = result;
+      if (searchText) {
+        arr = result.filter((ticket) => ticket.title.includes(searchText));
       }
       res.json(arr);
     });

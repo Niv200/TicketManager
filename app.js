@@ -19,6 +19,15 @@ const ticketSchema = new mongoose.Schema({
 
 const Ticket = mongoose.model("Ticket", ticketSchema);
 
+app.get("/", async (req, res) => {
+  try {
+    res.json(arr);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "error ocurred: ", error: error.message });
+  }
+});
+
 app.patch("/api/tickets/:ticketId/done", async (req, res) => {
   let { ticketId } = req.params;
   try {
@@ -47,7 +56,9 @@ app.get("/api/tickets", async (req, res) => {
     Ticket.find({}).then((result) => {
       let arr = result;
       if (searchText) {
-        arr = result.filter((ticket) => ticket.title.includes(searchText));
+        arr = result.filter((ticket) =>
+          ticket.title.toLowerCase().includes(searchText.toLowerCase())
+        );
       }
       res.json(arr);
     });

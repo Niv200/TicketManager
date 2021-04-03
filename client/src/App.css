@@ -28,11 +28,39 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* ////////////////////////////////////////////////////// */
+.label {
+  text-align: center;
+  padding: 0px 3px 1px 3px;
+  margin-left: 4px;
+  margin-right: 4px;
+  border-radius: 10px;
+}
+
+.Corvid {
+  background-color: gray;
+}
+
+.Api {
+  background-color: lightblue;
+}
+
+.Guidelines {
+  background-color: lightgreen;
+}
+
+.Problem {
+  background-color: tomato;
+}
+
+.Login {
+  background-color: lightcoral;
+}
+
+.Tutorial {
+  background-color: cyan;
+}
+
+.View.Count {
+  background-color: cornflowerblue;
 }

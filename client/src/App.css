@@ -2,33 +2,10 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.ticket {
+  background-color: cadetblue;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-/* ////////////////////////////////////////////////////// */
 .label {
   text-align: center;
   padding: 0px 3px 1px 3px;
@@ -63,4 +40,40 @@
 
 .View.Count {
   background-color: cornflowerblue;
+}
+
+.tickets {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 0 2rem;
+  margin-top: 4rem;
+}
+
+.ticket {
+  position: relative;
+  width: fit-content;
+  padding: 0.5rem 2rem 2rem;
+  border-radius: 0.4rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.ticket-content {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* number of lines to show */
+  -webkit-box-orient: vertical;
+}
+
+.ticket-content :extend {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 200; /* number of lines to show */
+  -webkit-box-orient: vertical;
 }

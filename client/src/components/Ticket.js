@@ -1,4 +1,5 @@
 import HideButton from "./HideButton";
+import ShowSpan from "./ShowSpan";
 
 function Ticket({
   ticket,
@@ -17,23 +18,36 @@ function Ticket({
     console.log(hiddenTickets);
   };
 
+  const showMore = () => {
+    content = ticket.content;
+  };
+
+  const showLess = () => {
+    content = content.slice(0, 100);
+  };
+
   if (hiddenTickets.includes(ticket)) {
     return null;
   }
-
   return (
     <div className="ticket">
-      <h3>{title}</h3>
-      <HideButton handleHide={handleHide} updateCounter={updateCounter} />
-      <p>{content}</p>
-      <p>
-        By {userEmail} | {creationTime}
+      <div className="ticket-header">
+        <HideButton handleHide={handleHide} updateCounter={updateCounter} />
+        <h3>{title}</h3>
+      </div>
+      <div className="ticket-labels">
+        <span>
+          {labels?.map((label) => (
+            <label className={`label ${label}`}>{label}</label>
+          ))}
+        </span>
+      </div>
+      <p className="ticket-content">
+        {content}
+        <br />
       </p>
-      <span>
-        {labels?.map((label) => (
-          <label className={`label ${label}`}>{label}</label>
-        ))}
-      </span>
+      <ShowSpan showMore={showMore} showLess={showLess} />
+      By {userEmail} | {creationTime}
     </div>
   );
 }

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import HideButton from "./HideButton";
 import ShowSpan from "./ShowSpan";
 
@@ -12,18 +13,19 @@ function Ticket({
   hiddenTickets,
   setHiddenTickets,
 }) {
+  const [hidden, setHidden] = useState("hidden");
+
   const handleHide = () => {
     console.log(ticket);
     setHiddenTickets([...hiddenTickets, ticket]);
     console.log(hiddenTickets);
   };
-
   const showMore = () => {
-    content = ticket.content;
+    setHidden("shown");
   };
 
   const showLess = () => {
-    content = content.slice(0, 100);
+    setHidden("hidden");
   };
 
   if (hiddenTickets.includes(ticket)) {
@@ -42,10 +44,12 @@ function Ticket({
           ))}
         </span>
       </div>
-      <p className="ticket-content">
-        {content}
-        <br />
-      </p>
+      <div className={hidden}>
+        <p className="ticket-content">
+          {content}
+          <br />
+        </p>
+      </div>
       <ShowSpan showMore={showMore} showLess={showLess} />
       By {userEmail} | {creationTime}
     </div>

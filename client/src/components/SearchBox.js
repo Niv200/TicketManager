@@ -41,7 +41,7 @@ function SearchBox() {
   };
 
   useEffect(() => {
-    updateTickets();
+    updateTickets("");
   }, []);
 
   return (

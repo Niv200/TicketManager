@@ -1,4 +1,3 @@
-import { useState } from "react";
 import HideButton from "./HideButton";
 
 function Ticket({

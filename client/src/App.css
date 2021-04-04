@@ -1,9 +1,29 @@
 .App {
   text-align: center;
+  z-index: 2;
 }
 
 .ticket {
-  background-color: cadetblue;
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  width: fit-content;
+  padding: 0.5rem 2rem 2rem;
+  border-radius: 0.4rem;
+  margin-bottom: 2rem;
+  background-color: rgb(219, 189, 246);
+}
+
+.ticket-content,
+.ticket-header {
+  width: 15rem;
+  word-wrap: break-word;
+}
+
+.ticket-header {
+  padding: 2rem 0 0;
 }
 
 .label {
@@ -19,7 +39,7 @@
 }
 
 .Api {
-  background-color: lightblue;
+  background-color: rgb(130, 161, 172);
 }
 
 .Guidelines {
@@ -28,6 +48,14 @@
 
 .Problem {
   background-color: tomato;
+}
+
+.Collapse {
+  background-color: rgb(250, 85, 162);
+}
+
+.Expand {
+  background-color: rgb(100, 250, 200);
 }
 
 .Login {
@@ -42,7 +70,7 @@
   background-color: cornflowerblue;
 }
 
-.tickets {
+#tickets {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -71,4 +99,64 @@
 }
 
 .shown {
+}
+
+#hideTicketButton {
+  position: absolute;
+  right: 1rem;
+  width: 2rem;
+  height: 1.8rem;
+  opacity: 0;
+}
+
+.ticket:hover #hideTicketButton {
+  opacity: 1;
+}
+
+#done-button {
+  position: absolute;
+  left: 0.6rem;
+  margin-top: -0.3rem;
+  width: 1.6rem;
+  opacity: 0;
+}
+
+.ticket:hover #done-button {
+  opacity: 0.8;
+}
+
+.done {
+  background-color: lightgreen;
+}
+
+.undone {
+  background-color: lightblue;
+}
+
+.showdiv {
+  z-index: 5;
+  width: 80%;
+  position: fixed;
+  top: 10%;
+  left: 10%;
+  background-color: cyan;
+  margin: 20px 20px 20px 20px;
+  /* border: 5px solid rgb(0, 140, 255); */
+  border-radius: 20px;
+  box-shadow: 0 10px 4px 0px rgb(0, 196, 196);
+}
+
+input[type="text"] {
+  width: 15rem;
+  height: 2.5rem;
+  border-radius: 10px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+  background-color: rgb(110, 203, 231);
+  font-size: 1.3rem;
+}
+
+input[type="text"]:focus {
+  width: 30%;
+  outline-style: none;
 }

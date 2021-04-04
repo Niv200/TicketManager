@@ -2,12 +2,15 @@ import { useState, useEffect } from "react";
 import HiddenCounter from "./HiddenCounter";
 import Ticket from "./Ticket";
 import axios from "axios";
+import ShowDiv from "./ShowDiv";
 
 function SearchBox() {
   let ticketArray = [];
   const [count, setCount] = useState(0);
+  const [shown, setShown] = useState("");
   const [data, setData] = useState([]);
   const [hiddenTickets, setHiddenTickets] = useState([]);
+  const [title, setTitle] = useState("");
 
   const showAll = () => {
     setHiddenTickets([]);
@@ -30,6 +33,10 @@ function SearchBox() {
     }
   };
 
+  const setShow = (args) => {
+    setShown(args);
+  };
+
   const showButton = () => {
     if (count >= 1) {
       return (
@@ -42,6 +49,7 @@ function SearchBox() {
 
   useEffect(() => {
     updateTickets("");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -51,11 +59,13 @@ function SearchBox() {
           id="searchInput"
           className="input"
           type="text"
+          placeholder="Look a title up"
           onChange={(e) => updateTickets(e.target.value)}
         />
         <HiddenCounter count={count} showAll={showAll} />
         {showButton()}
       </span>
+      <ShowDiv content={shown} title={title} setShow={setShow} />
       <div id="tickets">
         {data.map((ticket) => {
           return (
@@ -69,6 +79,8 @@ function SearchBox() {
               updateCounter={() => setCount(count + 1)}
               hiddenTickets={hiddenTickets}
               setHiddenTickets={setHiddenTickets}
+              setShow={setShow}
+              setTitle={setTitle}
             />
           );
         })}

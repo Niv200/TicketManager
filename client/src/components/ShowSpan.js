@@ -1,22 +1,8 @@
-import { useState } from "react";
-
-function ShowSpan({ showMore, showLess }) {
-  const [shown, setShown] = useState(false);
-
+function ShowSpan({ showMore, setShow, content, title, setTitle }) {
   const show = () => {
-    setShown(true);
-    showMore();
+    setShow(content);
+    setTitle(title);
   };
-
-  const unshow = () => {
-    setShown(false);
-    showLess();
-  };
-
-  if (shown) {
-    return <span onClick={() => unshow()}>Show less</span>;
-  } else {
-    return <span onClick={() => show()}>Show more</span>;
-  }
+  return <span onClick={() => show()}>Show more</span>;
 }
 export default ShowSpan;

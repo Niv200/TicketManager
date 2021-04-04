@@ -24,4 +24,4 @@
 ## Heroku
 
 This project is availible in Heroku. \
-click [here](https://www.youtube.com/watch?v=vTULg-7xycs) to see it!
+click [here](https://ticketmanagerbyniv.herokuapp.com/) to see it!

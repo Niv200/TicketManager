@@ -40,7 +40,7 @@ function SearchBox() {
   const showButton = () => {
     if (count >= 1) {
       return (
-        <button Id="restoreHideTickets" onClick={showAll}>
+        <button id="restoreHideTickets" onClick={showAll}>
           Show all
         </button>
       );
@@ -73,6 +73,7 @@ function SearchBox() {
         {data.map((ticket) => {
           return (
             <Ticket
+              key={Math.floor(Math.random() * 100000000000 + 1)}
               ticket={ticket}
               title={ticket.title}
               content={ticket.content}

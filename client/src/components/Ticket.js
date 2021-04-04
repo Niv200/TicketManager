@@ -26,9 +26,7 @@ function Ticket({
   };
 
   const handleHide = () => {
-    console.log(ticket);
     setHiddenTickets([...hiddenTickets, ticket]);
-    console.log(hiddenTickets);
   };
 
   if (hiddenTickets.includes(ticket)) {
@@ -64,6 +62,7 @@ function Ticket({
       />
       By {userEmail}
       <br />
+      {/* {creationTime.replace("T", " ").slice(0, 16)} */}
       {creationTime}
     </div>
   );

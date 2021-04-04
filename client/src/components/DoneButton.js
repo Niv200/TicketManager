@@ -1,8 +1,11 @@
 import React from "react";
-import logo from "../done-icon.png";
 
 function DoneButton(props) {
-  return <img onClick={() => props.changeDone()} src={logo} id="done-button" />;
+  return (
+    <button onClick={() => props.changeDone()} className="markbutton">
+      Mark
+    </button>
+  );
 }
 
 export default DoneButton;

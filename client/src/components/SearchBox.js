@@ -54,17 +54,20 @@ function SearchBox() {
 
   return (
     <div>
-      <span>
-        <input
-          id="searchInput"
-          className="input"
-          type="text"
-          placeholder="Look a title up"
-          onChange={(e) => updateTickets(e.target.value)}
-        />
-        <HiddenCounter count={count} showAll={showAll} />
-        {showButton()}
-      </span>
+      <div id="headdiv">
+        <h1 id="title">Tickets Manager</h1>
+        <span>
+          <input
+            id="searchInput"
+            className="input"
+            type="text"
+            placeholder="Look a title up"
+            onChange={(e) => updateTickets(e.target.value)}
+          />
+          <HiddenCounter count={count} showAll={showAll} />
+          {showButton()}
+        </span>
+      </div>
       <ShowDiv content={shown} title={title} setShow={setShow} />
       <div id="tickets">
         {data.map((ticket) => {

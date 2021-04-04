@@ -1,6 +1,13 @@
 .App {
   text-align: center;
-  z-index: 2;
+  /* z-index: 2; */
+  background-color: rgb(138, 232, 255);
+}
+
+#headdiv {
+  background-color: rgb(56, 192, 255);
+  padding-bottom: 20px;
+  box-shadow: 0 -100px 4px 0px rgb(56, 192, 255);
 }
 
 .ticket {
@@ -13,7 +20,7 @@
   padding: 0.5rem 2rem 2rem;
   border-radius: 0.4rem;
   margin-bottom: 2rem;
-  background-color: rgb(219, 189, 246);
+  background-color: rgb(18, 245, 226);
 }
 
 .ticket-content,
@@ -109,28 +116,12 @@
   opacity: 0;
 }
 
-.ticket:hover #hideTicketButton {
-  opacity: 1;
-}
-
-#done-button {
-  position: absolute;
-  left: 0.6rem;
-  margin-top: -0.3rem;
-  width: 1.6rem;
-  opacity: 0;
-}
-
-.ticket:hover #done-button {
-  opacity: 0.8;
-}
-
 .done {
   background-color: lightgreen;
 }
 
 .undone {
-  background-color: lightblue;
+  background-color: rgb(80, 202, 250);
 }
 
 .showdiv {
@@ -159,4 +150,19 @@ input[type="text"] {
 input[type="text"]:focus {
   width: 30%;
   outline-style: none;
+}
+
+.morespan {
+  background-color: rgb(133, 255, 214);
+  margin-top: 5px;
+  margin-bottom: 10px;
+  padding: 2px 5px 2px 5px;
+  border-radius: 10px;
+  box-shadow: 0 5px 0px 0px rgb(0, 127, 136);
+}
+
+.morespan:hover {
+  background-color: rgb(133, 255, 214);
+  transform: translate(0px, 3px);
+  box-shadow: 0 2px 0px 0px rgb(0, 127, 136);
 }

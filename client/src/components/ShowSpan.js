@@ -3,6 +3,10 @@ function ShowSpan({ showMore, setShow, content, title, setTitle }) {
     setShow(content);
     setTitle(title);
   };
-  return <span onClick={() => show()}>Show more</span>;
+  return (
+    <span className="morespan" onClick={() => show()}>
+      Show more
+    </span>
+  );
 }
 export default ShowSpan;
